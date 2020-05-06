@@ -94,7 +94,7 @@
  public static ** valueOf(java.lang.String);
 }
 
--keep public class com.ss.data.WheelData;
+-keep public class com.ss.data.WheelData
 
 -keep class * implements android.os.Parcelable {
  public static final android.os.Parcelable$Creator *;

@@ -29,7 +29,7 @@ public class GMain extends GDirectedGame {
   public static int screenHeight = 0;
   public static int screenWidth = 0;
   public static final int testType = 2;
-  public static TextureAtlas liengAtlas, cardAtlas, startSceneAtlas, wheelAtlas, particleAtlas;
+  public static TextureAtlas liengAtlas, cardAtlas, startSceneAtlas, wheelAtlas, particleAtlas, leaderBoard;
   public static float ratioX, ratioY;
   public static Preferences pref;
   public static GameScene gameScene;
@@ -85,6 +85,7 @@ public class GMain extends GDirectedGame {
     startSceneAtlas = GAssetsManager.getTextureAtlas("start_scene.atlas");
     wheelAtlas = GAssetsManager.getTextureAtlas("wheel.atlas");
     particleAtlas = GAssetsManager.getTextureAtlas("particle.atlas");
+    leaderBoard = GAssetsManager.getTextureAtlas("leaderboard.atlas");
 
     SoundEffects.initSound();
 

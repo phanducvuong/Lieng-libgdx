@@ -173,6 +173,7 @@ public class Game {
         bot.setTotalMoney(GMain.pref.getLong("money"));
       else
         bot.setTotalMoney(logic.initMoneyBot(lsBotActive.get(0).getTotalMoney(), moneyBet));
+      bot.setName();
       bot.setAlive(true);
       bot.setActive(true);
       bot.addToScene();
@@ -213,13 +214,12 @@ public class Game {
     else {
       resetGame();
 
-      System.out.println(moneyBet);
+//      System.out.println(moneyBet);
 
       bet.totalMoney = moneyBet * lsBotActive.size();
       gamePlayUI.eftLbTotalMoney(0);
 
       for (Bot bot : lsBotActive) {
-        //todo: effect through money bet
         bot.setTotalMoney(bot.getTotalMoney() - moneyBet);
         bot.convertTotalMoneyToString();
         bot.chipOutNewRound(this, moneyBet);
@@ -229,7 +229,7 @@ public class Game {
 
       logMoneyBot();
 
-      //nếu player thắng trên số ván quy định => can thiệp vài bài của player => thua
+      //nếu player thắng trên số ván quy định => can thiệp vào bài của player => thua
       divideCard.chkTimePlayerWinInGame(lsCardUp);
       divideCard.nextTurn();
 

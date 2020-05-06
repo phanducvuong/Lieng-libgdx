@@ -163,10 +163,7 @@ public class Bot {
   }
 
   public void changeAvatar(Game game) {
-    //todo: sound change bot
-
     SoundEffects.startSound("doorbell");
-
     reset();
     Effect.getInstance(game).changeAvatarBot(this);
   }
@@ -175,12 +172,80 @@ public class Bot {
     if (avatar.getName().equals(id+"")) {
       avatar.setDrawable(new TextureRegionDrawable(GMain.liengAtlas.findRegion("bot" + idAvatar)));
       avatar.setName(idAvatar + "");
+
+      if (C.lang.idCountry.equals("vn"))
+        lbNamePlayer.setText(getNameVi(idAvatar));
+      else
+        lbNamePlayer.setText(getNameEn(idAvatar));
     }
     else {
       int t = id + 1;
       avatar.setDrawable(new TextureRegionDrawable(GMain.liengAtlas.findRegion("bot" + t)));
       avatar.setName(id + "");
+
+      if (C.lang.idCountry.equals("vn"))
+        lbNamePlayer.setText(getNameVi(idAvatar));
+      else
+        lbNamePlayer.setText(getNameEn(idAvatar));
     }
+  }
+
+  private String getNameVi(int id) {
+
+    String name;
+    switch (id) {
+
+      case 0: name = "Bạn"; break;
+      case 1: name = "K.Giang"; break;
+      case 2: name = "Gia Cảnh"; break;
+      case 3: name = "T.Kiệt"; break;
+      case 4: name = "T.Thanh"; break;
+      case 5: name = "Bảo Lâm"; break;
+      case 6: name = "Anh Khoa"; break;
+      case 7: name = "Vân Nhi"; break;
+      case 8: name = "P.Yến"; break;
+      case 9: name = "Hải Nhi"; break;
+      case 10: name = "Kiều Mỹ"; break;
+      case 11: name = "Diễm Chi"; break;
+      case 12: name = "Bảo Trúc"; break;
+      default: name = "M.Thuận"; break;
+
+    }
+
+    return name;
+  }
+
+  private String getNameEn(int id) {
+
+    String name;
+    switch (id) {
+
+      case 0: name = "You"; break;
+      case 1: name = "Zengod"; break;
+      case 2: name = "Roldat"; break;
+      case 3: name = "Verguth"; break;
+      case 4: name = "Rezas"; break;
+      case 5: name = "Delgrus"; break;
+      case 6: name = "Vondrath"; break;
+      case 7: name = "Ava"; break;
+      case 8: name = "Sophia"; break;
+      case 9: name = "Mia"; break;
+      case 10: name = "Charlotte"; break;
+      case 11: name = "Amelia"; break;
+      case 12: name = "Evelyn"; break;
+      default: name = "Emily"; break;
+
+    }
+
+    return name;
+
+  }
+
+  public void setName() {
+    if (C.lang.idCountry.equals("vn"))
+      lbNamePlayer.setText(getNameVi(id));
+    else
+      lbNamePlayer.setText(getNameEn(id));
   }
 
   public void eftLbMoneyChange(Game game, long moneyChange) {
